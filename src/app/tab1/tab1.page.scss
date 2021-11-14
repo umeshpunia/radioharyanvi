@@ -1,0 +1,98 @@
+ion-content {
+  position: relative;
+  //   --background: black;
+}
+
+.top {
+  position: absolute;
+  width: 100vw;
+  height: 30vh;
+  left: 0px;
+  top: 0px;
+  background: black;
+  color: white;
+  text-align: center;
+  .description {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    margin-top: 10px;
+  }
+}
+
+.player {
+  position: absolute;
+  width: 243px;
+  height: 59px;
+  left: 40vw;
+  top: 25vh;
+  z-index: 10;
+  background: #ffffff;
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.5);
+  border-radius: 50px;
+  display: flex;
+  padding-left: 30px;
+  justify-content: space-between;
+  // padding-top: 10px;
+  align-items: center;
+
+  .player-right {
+    ion-icon {
+      color: black;
+      font-size: 45px;
+    }
+  }
+}
+.will-play {
+  position: absolute;
+  // width: 243px;
+  // height: 59px;
+  left: 47vw;
+  top: 26vh;
+  z-index: 10;
+  background: #ffffff;
+  border-radius: 50px;
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.5);
+  ion-icon {
+    color: black;
+    font-size: 45px;
+  }
+}
+
+.bottom {
+  position: absolute;
+  width: 100vw;
+  left: 0px;
+  top: 30vh;
+
+  background: #ffffff;
+}
+
+.single-song {
+  margin: 20px;
+  display: flex;
+  justify-content: space-between;
+  ion-img {
+    border-radius: 5px;
+  }
+
+  .song-pic {
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .will-play {
+    top: 26vh;
+    left: 41%;
+  }
+  .player {
+    left: 17%;
+  }
+}
+
+
+
+.bold{
+  font-weight: bolder;
+}

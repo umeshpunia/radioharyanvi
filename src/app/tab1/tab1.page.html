@@ -1,17 +1,50 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content>
+  <div class="top">
+    <div class="title">
+      <h1>Radio Haryanvi</h1>
+    </div>
+    <div class="description">Apni Sanksriti - Apni Virasat</div>
+    <div class="temp">
+      <h4>40&deg; - Hisar</h4>
+    </div>
+  </div>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="will-play" *ngIf="!playing">
+    <ion-button fill="clear" (click)="playRadio()">
+      <ion-icon slot="icon-only" name="play-circle-outline"></ion-icon>
+    </ion-button>
+  </div>
+  <div class="player" *ngIf="playing">
+    <div class="player-left">
+      <marquee class="bold" [behavior]="'scroll'" direction="left">
+        {{currentSong.song.title}}
+      </marquee>
+    </div>
+    <div class="player-right">
+      <ion-button fill="clear" (click)="stopRadio()">
+        <ion-icon slot="icon-only" name="pause-circle-outline"></ion-icon>
+      </ion-button>
+    </div>
+  </div>
+  <div class="bottom">
+    
+    <!-- songs history -->
+    <ion-list class="history list" style="margin-top: 30px;">
+      <ion-list-header class="bold">Current Program : Songs</ion-list-header>
+      <ion-list-header class="bold"> Last Played (5) </ion-list-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+      <ion-item *ngFor="let history of playedHistory">
+        
+        <ion-avatar slot="start" style="height: 70px;width: 70px;">
+          <img style="border-radius: 10px;" [src]="history.song.art" />
+        </ion-avatar>
+        <ion-label>
+          <h2 class="bold" style="white-space: pre-wrap;word-break: break-word;">{{history.song.title}}</h2>
+          <p>Duration : {{convertTime(history.duration)}}</p>
+          <p>Played At : {{getSongDuration(history.played_at)}}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+
+  </div>
 </ion-content>
